@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <meta charset="UTF-8">
 <html>
 <head>
 <style>
-h2 {text-align:center;}
+h2 {text-align:center;font-size: 35px;}
+
+body {background-color:white;}
 
 table {
     border-collapse: collapse;
-    text-align: center; margin-left:5%; margin-right:5%; width: 90%;font-size:12.5px;
+    text-align: center; margin-left:5%; margin-right:5%; width: 85%;font-size:12.5px;
 }
 
 th, td {
@@ -16,14 +18,15 @@ th, td {
 }
 p {
     margin-right: 0;
-    margin-left: 55px;
+    margin-left: 130px;
     text-align:left;
+    color:black;
 }
 #description {
   margin-left: 10%;
 }
 
-tr:nth-child(even){background-color: #0A85C5}
+tr:nth-child(even){background-color: #0A85C5;}
 tr:nth-child(odd){background-color: #90BBE1}
  body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -32,7 +35,9 @@ tr:nth-child(odd){background-color: #90BBE1}
         position: relative;
         margin-left:0;
         margin-right:0;
+
     }
+
     svg {
         width: 100%;
         height: 100%;
@@ -60,12 +65,14 @@ tr:nth-child(odd){background-color: #90BBE1}
     .legend {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 60%;
+
     }
     text {
-        font: 10px sans-serif;
+        font: 10px sans-serif; 
     }
     .axis text {
         font: 10px sans-serif;
+
     }
     .axis path{
         fill: none;
@@ -86,12 +93,11 @@ tr:nth-child(odd){background-color: #90BBE1}
 
 <h2> Female Workforce in China  </h2>
 <div id="description">
-<p>The <strong>interactive graph</strong> below reflects the gender gap in the leadership roles in China duirng the past three years</p>
-<p>It visualizes the low employment rate of females workforce in leadership roles comparing to that of male workforce. </p>
-<p><strong><sup><em>*Scroll down to see the data chart</em></sup></strong></p>
+<p>The interactive graph below reflects the <a href="http://www.catalyst.org/knowledge/women-workforce-china"><font color="black">gender gap</font></a> in the leadership roles in China duirng the past three years</p>
+<p>It visualizes the low employment rate of females workforce in leadership roles comparing to that of male workforce. <a href="https://github.com/Lisamao5425/Lisamao5425.github.io"><font color="black">Read More</font></a></p>
 </div>
 
-<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.7.0/d3-legend.min.js"></script>
 <script>
 function scrollWin() {
@@ -187,14 +193,14 @@ bar_enter.append("rect")
     .attr("width", x.rangeBand())
     .attr("y", function(d) { return y(d.y1); })
     .attr("height", function(d) { return y(d.y0) - y(d.y1); })
-    .style("fill", function(d) { return color(d.name); });
-
+    .style("fill", function(d) { return color(d.name);});
+   
 bar_enter.append("text")
     .text(function(d) { return d3.format(".2s")(d.y1-d.y0)+"%"; })
     .attr("y", function(d) { return y(d.y1)+(y(d.y0) - y(d.y1))/1.45; })
     .attr("x", x.rangeBand()/2.25)
     .style("fill", '#ffffff');
-    
+       
     bar
             .on("mousemove", function(d){
                 divTooltip.style("left", d3.event.pageX+10+"px");
@@ -206,6 +212,7 @@ bar_enter.append("text")
                 element = elements[l].__data__
                 value = element.y1 - element.y0
                 divTooltip.html((d.label)+"<br>"+element.name+"<br>"+value+"%");
+              
             });
     bar
             .on("mouseout", function(d){
@@ -221,6 +228,9 @@ bar_enter.append("text")
             .scale(color);
     svg.select(".legendLinear")
             .call(legend);
+
+
+
 </script>
 <br>
 <br>
